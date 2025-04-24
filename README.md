@@ -20,3 +20,7 @@ Spring AI 1.0.0-M2 or newer     // I used Spring AI 1.0.0-M7
 
 
 3. Command to run the application:   mvn spring-boot:run
+
+4. After you run the program, enter http://localhost:8080 in your browser to access the basic non-streaming chatbot.
+
+5. To access the streaming chatbot, enter http://localhost:8080/stream in your browser. 
