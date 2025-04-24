@@ -33,9 +33,7 @@ Spring AI 1.0.0-M2 or newer       // I used Spring AI 1.0.0-M7
    
 # Using the Application
 
-5. After you run the program, enter http://localhost:8080 in your browser to access the basic non-streaming chatbot.
-
-6. To access the streaming chatbot, enter http://localhost:8080/stream in your browser.
+5. After you run the program, enter http://localhost:8080/stream.html in your browser, to access the chatbot
 
 # Special Thanks To:
 
