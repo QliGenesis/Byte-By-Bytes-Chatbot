@@ -107,6 +107,8 @@ nvm clean install -U
 - @J00958434
 - @Tsparks2003 
 - @Tmccoy02
+- @zalanbarrett
+
 We welcome contributions! If you'd like to help improve Alicia, feel free to fork the repository and submit a pull request. We ask that you follow our code of conduct and adhere to our contributing guidelines!
 
 ## Liscensing 
