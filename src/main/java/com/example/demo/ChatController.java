@@ -1,11 +1,13 @@
 package com.example.demo;
 
 import org.springframework.ai.chat.client.ChatClient;
+import org.springframework.ai.chat.client.advisor.MessageChatMemoryAdvisor;
+import org.springframework.ai.chat.memory.InMemoryChatMemory;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import reactor.core.publisher.Flux;
 
 @RestController
 @CrossOrigin
@@ -14,14 +16,24 @@ public class ChatController {
 
     public ChatController(ChatClient.Builder builder) {
         this.chatClient = builder
+                .defaultAdvisors(new MessageChatMemoryAdvisor(new InMemoryChatMemory()))
                 .build();
     }
 
-    @GetMapping("/stream")
-    public Flux<String> chatWithStream(@RequestParam String message) {
+    @PostMapping("/chat")
+    public String chat(@RequestParam String message) {
         return chatClient.prompt()
                 .user(message)
-                .stream()
+                .call()
+                .content();
+
+    }
+
+    @GetMapping("/stream")
+    public String chatWithStream(@RequestParam String message) {
+        return chatClient.prompt()
+                .user(message)
+                .call()
                 .content();
     }
 
